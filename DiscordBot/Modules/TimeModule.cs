@@ -7,7 +7,7 @@ namespace DiscordBot.Modules
     public class TimeModule : ModuleBase
     {
         // ~time -> 14:38:01
-        [Command("time"), Summary("Echos a message.")]
+        [Command("time"), Summary("Responds with the current time in UTC")]
         public async Task Time()
         {
             // ReplyAsync is a method on ModuleBase

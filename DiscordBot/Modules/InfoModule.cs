@@ -21,13 +21,13 @@ namespace DiscordBot.Modules
         }
 
         // ~say hello -> hello
-        [Command("ping"), Summary("Responds with 'Pong!'")]
+        [Command("ping"), Summary("Responds with 'Pong!'.")]
         public async Task Ping()
         {
             await ReplyAsync("Pong!");
         }
 
-        [Command("botinfo")]
+        [Command("botinfo"), Summary("Responds with info about the bot.")]
         public async Task BotInfo()
         {
             var application = await Context.Client.GetApplicationInfoAsync();
@@ -46,8 +46,7 @@ namespace DiscordBot.Modules
             );
         }
 
-        private static string GetUptime()
-            => (DateTime.Now - Process.GetCurrentProcess().StartTime).ToString(@"dd\.hh\:mm\:ss");
+        private static string GetUptime() => (DateTime.Now - Process.GetCurrentProcess().StartTime).ToString(@"dd\.hh\:mm\:ss");
         private static string GetHeapSize() => Math.Round(GC.GetTotalMemory(true) / (1024.0 * 1024.0), 2).ToString();
     }
 }
